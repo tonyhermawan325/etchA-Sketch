@@ -9,7 +9,6 @@ for(let row = 0; row < divNumber ; row++){
     divRow.setAttribute("data-row", `${row}`);
     divRow.classList.add("divRow");
     containter.appendChild(divRow);
-    console.log(`${row}`);
     for(let col = 0; col < divNumber; col++){
         paragraph = document.createElement('p');
         paragraph.textContent = `${row}, ${col}`;
@@ -21,17 +20,30 @@ for(let row = 0; row < divNumber ; row++){
     
 }
 
+  function changeColor(e){
+    e.target.style.backgroundColor = "blue";
+}
+const divEls = document.querySelectorAll(".divElement");
+let interval;
 
-const divEl = document.querySelectorAll(".divElement");
-divEl.forEach(function(){
-    divEl.addEventListener("mouseover", function(event){
-        event.target.style.color = "crimson";
+let mouseIsDown = false;
+window.addEventListener("mousedown", function(event){
+    mouseIsDown = true;
+    console.log(event);
+    console.log(mouseIsDown);
+});
+
+window.addEventListener("mouseup", function(event){
+    mouseIsDown = false;
+    console.log(event);
+    console.log(mouseIsDown);
+});
+
+divEls.forEach(function(divEl){
+    divEl.addEventListener("mouseenter", function(event){
+        if(mouseIsDown){
+            event.target.style.backgroundColor = "blue";
+        }
     })
-})
+});
 
-
-
-
-/**
-    
- * */
