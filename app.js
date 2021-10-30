@@ -1,5 +1,6 @@
-let divNumber = 20;
+let divNumber = 100;
 const containter = document.querySelector("#Container");
+let button = document.querySelector("button");
 
 for(let row = 0; row < divNumber ; row++){
     let div;
@@ -15,6 +16,7 @@ for(let row = 0; row < divNumber ; row++){
         div = document.createElement('div');
         div.setAttribute("data-rowCol", `${row},${col}`);
         div.classList.add("divElement");
+        div.setAttribute("draggable", "false");
         divRow.appendChild(div);
         }
     
@@ -42,8 +44,14 @@ window.addEventListener("mouseup", function(event){
 divEls.forEach(function(divEl){
     divEl.addEventListener("mouseenter", function(event){
         if(mouseIsDown){
-            event.target.style.backgroundColor = "blue";
+            event.target.classList.replace("divElement", "divElement_clicked");
         }
     })
 });
+
+button.addEventListener("click", function(){
+    divEls.forEach(function(divEl){
+        divEl.style.backgroundColor = "black";
+    })
+})
 

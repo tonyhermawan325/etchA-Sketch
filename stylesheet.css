@@ -11,7 +11,7 @@
     box-sizing: content-box;
     flex: 1;
     background-color: black;
-    border: solid 0.1px pink;
+    border: solid 0px pink;
     display: flex;
     flex-direction: column;
 }
@@ -20,8 +20,17 @@
     box-sizing: content-box;
     flex: 1;
     background-color: black;
-    border: solid 1px pink;
+    border: solid 0.005px white;
     color: blanchedalmond;
+}
+
+.divElement_clicked{
+    box-sizing: content-box;
+    flex: 1;
+    background-color: white;
+    border: solid 0.005px white;
+    color: blanchedalmond;
+    pointer-events: none;
 }
 
 .divElement:hover{
